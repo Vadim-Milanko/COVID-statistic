@@ -2,19 +2,18 @@ import React from 'react';
 import { Provider } from 'react-redux';
 
 import store from './store/store';
+import Routes from './routes/Routes';
 
 import './App.scss';
-import Statistics from './pages/Statistics/Statistics';
 
 function App() {
   return (
     <Provider store={store}>
       <div className="App">
-        <Statistics />
+        <Routes />
       </div>
     </Provider>
-
   );
-}
+};
 
 export default App;

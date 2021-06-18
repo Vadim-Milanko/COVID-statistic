@@ -1,6 +1,6 @@
 import { combineReducers } from "redux";
 
-import { countriesReducer, IState as ICountriesState } from "./statisctics/reducers/reducer";
+import { countriesReducer, IState as ICountriesState } from "./statisctics/reducer";
 
 export interface IStore {
     countries: ICountriesState;

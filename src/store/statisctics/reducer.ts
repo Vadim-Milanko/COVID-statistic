@@ -1,6 +1,6 @@
 import { createReducer } from '@reduxjs/toolkit';
-import { ICountry } from '../../../pages/Statistics/interfaces';
-import { CountriesActionTypes as types } from '../actions/actionTypes';
+import { ICountry } from '../../pages/Statistics/interfaces';
+import { CountriesActionTypes as types } from './actionTypes';
 
 
 export interface IState {

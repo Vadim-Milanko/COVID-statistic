@@ -6,10 +6,11 @@ import SearchBar from '../SearchBar/SearchBar';
 import './style.scss';
 
 const Header: React.FC = (): JSX.Element => {
+
     return (
         <div className='header'>
             <Logo />
-            <SearchBar />
+            <SearchBar/>
         </div>
     )
 }
