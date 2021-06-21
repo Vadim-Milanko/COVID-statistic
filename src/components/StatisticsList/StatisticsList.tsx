@@ -6,17 +6,23 @@ import ListItem from '../ListItem/ListItem';
 
 import './style.scss';
 
-const StatisticsList: React.FC = (): JSX.Element => {
+export interface IProps {
+    setIsVisible: (isVisible: boolean) => void;
+}
+
+const StatisticsList: React.FC<IProps> = (props: IProps): JSX.Element => {
     const { countries, isLoading } = useSelector((state: IStore) => state.countries);
+    const { setIsVisible } = props;
 
-    console.log(countries);
-
+    const showDetails = () => {
+        setIsVisible(true);
+    }
 
     return (
         <div className='statisticList'>
-            <div className='statisticList__header'>
+            <div className='statisticList__header statisticList_items'>
                 <ListItem
-                    listId='#'
+                    listId='№'
                     itemName='Country'
                     totalConfirmed='Total Confirmed'
                 />
@@ -28,6 +34,7 @@ const StatisticsList: React.FC = (): JSX.Element => {
 
                         return (
                             <ListItem
+                                showDetails={showDetails}
                                 key={country.ID}
                                 listId={index + 1}
                                 itemName={Country}

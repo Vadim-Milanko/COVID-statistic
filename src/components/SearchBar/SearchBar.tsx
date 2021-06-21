@@ -1,23 +1,16 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
-
-import { fetchCountries } from '../../store/statisctics/actionCreators';
+import React from 'react';
 
 import './style.scss';
 import search from '../../assets/images/Vector.png';
 
+export interface IProps {
+    searchQuery: string;
+    onInputChange: any;
+    searchStatistics: any;
+}
 
-const SearchBar: React.FC = (): JSX.Element => {
-    const [searchQuery, setSearchQuery] = useState('');
-    const dispatch = useDispatch();
-
-    const onInputChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
-        setSearchQuery(event.target.value);
-    }
-
-    const searchStatistics = (): void => {
-        dispatch(fetchCountries());
-    }
+const SearchBar: React.FC<IProps> = (props: IProps): JSX.Element => {
+    const { searchQuery, onInputChange, searchStatistics } = props;
 
     return (
         <div className='searchBar'>

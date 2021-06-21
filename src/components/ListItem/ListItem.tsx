@@ -6,13 +6,14 @@ interface IProps {
     listId: string | number;
     itemName: string;
     totalConfirmed: string | number;
+    showDetails?: any;
 }
 
 const ListItem: React.FC<IProps> = (props: IProps): JSX.Element => {
-    const { listId, itemName, totalConfirmed } = props;
+    const { listId, itemName, totalConfirmed, showDetails } = props;
 
     return (
-        <div className='listItem'>
+        <div onClick={showDetails} className='listItem'>
             <div className='listItem__number'>
                 {listId}
             </div>
