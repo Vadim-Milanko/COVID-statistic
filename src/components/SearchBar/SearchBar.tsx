@@ -6,26 +6,36 @@ import search from '../../assets/images/Vector.png';
 export interface IProps {
     searchQuery: string;
     onInputChange: any;
-    searchStatistics: any;
 }
 
 const SearchBar: React.FC<IProps> = (props: IProps): JSX.Element => {
-    const { searchQuery, onInputChange, searchStatistics } = props;
+    const { searchQuery, onInputChange } = props;
+
+    const getTitleOrderBy = () => {
+        
+    }
 
     return (
         <div className='searchBar'>
+            <button
+                type='button'
+                onClick={getTitleOrderBy}
+                className='searchBar_orderBy'
+            >
+                ASC
+            </button>
             <input
                 type="text"
                 placeholder='Search...'
                 value={searchQuery}
                 onChange={onInputChange}
-                className='searchBar__input' />
-            <button
-                type='button'
-                onClick={searchStatistics}
-                className="searchBar__button">
-                <img src={search} alt="search" />
-            </button>
+                className='searchBar__input'
+            />
+            <img
+                src={search}
+                alt="search"
+                className='searchBar__img'
+            />
         </div>
     )
 }

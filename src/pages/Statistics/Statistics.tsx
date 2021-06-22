@@ -1,19 +1,23 @@
 import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 import Header from '../../components/Header/Header';
 import StatisticsList from '../../components/StatisticsList/StatisticsList';
-import DetailsWindow from '../../components/DetailsWindow/DetailsWindow'
-import { IStore } from '../../store/rootReducer';
+import DetailsWindow from '../../components/DetailsWindow/DetailsWindow';
+
 import { fetchCountries } from '../../store/statisctics/actionCreators';
-import { IProps } from './interfaces';
+import { IProps, IDetailsInfo } from './interfaces';
 
 import './style.scss';
 
+
 const Statistics: React.FC<IProps> = (props: IProps): JSX.Element => {
+    const [searchQuery, setSearchQuery] = useState<string>('');
     const [isVisible, setIsVisible] = useState<boolean>(false);
-    const isLoading = useSelector<IStore, boolean>(state => state.countries.isLoading);
+    const [detailsInfo, setDetailsInfo] = useState<IDetailsInfo | null>(null);
+
     const dispatch = useDispatch();
+
     const { history, location } = props;
 
     const apiFetchCountries = (): void => {
@@ -28,13 +32,19 @@ const Statistics: React.FC<IProps> = (props: IProps): JSX.Element => {
         <div className='statistics'>
             <Header
                 history={history}
-                location={location} />
+                location={location}
+                searchQuery={searchQuery}
+                setSearchQuery={setSearchQuery}
+            />
             <StatisticsList
                 setIsVisible={setIsVisible}
+                setDetailsInfo={setDetailsInfo}
+                searchQuery={searchQuery}
             />
             <DetailsWindow
                 isVisible={isVisible}
                 setIsVisible={setIsVisible}
+                detailsInfo={detailsInfo}
             />
         </div>
     )

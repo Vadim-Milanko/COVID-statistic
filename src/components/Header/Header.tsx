@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useDispatch } from 'react-redux';
 
 import { fetchCountries } from '../../store/statisctics/actionCreators';
@@ -10,10 +10,12 @@ import './style.scss';
 export interface IProps {
     history: any;
     location: any;
+    searchQuery: string;
+    setSearchQuery: (searchQuery: string) => void;
 }
 
 const Header: React.FC<IProps> = (props: IProps): JSX.Element => {
-    const [searchQuery, setSearchQuery] = useState<string>('');
+    const { searchQuery, setSearchQuery } = props;
     const dispatch = useDispatch();
 
     const onInputChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
@@ -30,7 +32,7 @@ const Header: React.FC<IProps> = (props: IProps): JSX.Element => {
             <SearchBar
                 searchQuery={searchQuery}
                 onInputChange={onInputChange}
-                searchStatistics={searchStatistics} />
+            />
         </div>
     )
 }

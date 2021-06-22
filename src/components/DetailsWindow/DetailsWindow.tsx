@@ -1,8 +1,6 @@
-import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import React from 'react';
 
-import { ICountry } from '../../pages/Statistics/interfaces';
-import { IStore } from '../../store/rootReducer';
+import { IDetailsInfo } from '../../pages/Statistics/interfaces';
 import ModalWindow from '../ModalWindow/ModalWindow';
 
 import './style.scss';
@@ -13,12 +11,12 @@ import recovered from '../../assets/images/recovered.png';
 
 export interface IProps {
     isVisible: boolean;
+    detailsInfo: IDetailsInfo | null;
     setIsVisible: (isVisible: boolean) => void;
 }
 
 const DetailsWindow: React.FC<IProps> = (props: IProps): JSX.Element => {
-    const countries = useSelector<IStore, ICountry[]>(state => state.countries.countries);
-    const { isVisible, setIsVisible } = props
+    const { isVisible, setIsVisible, detailsInfo } = props;
 
     const closeModal = () => setIsVisible(false);
 
@@ -33,21 +31,21 @@ const DetailsWindow: React.FC<IProps> = (props: IProps): JSX.Element => {
                         <img src={confirmed} alt="Total Confirmed" />
                     </div>
                     <div className="modalData__itemName">Total Confirmed</div>
-                    <div className="modalData__count">1</div>
+                    <div className="modalData__count">{detailsInfo?.TotalConfirmed}</div>
                 </div>
                 <div className='modalData__deteilsItem'>
                     <div className="modalData__img">
                         <img src={deaths} alt="Total Confirmed" />
                     </div>
                     <div className="modalData__itemName">Total Deaths</div>
-                    <div className="modalData__count">2</div>
+                    <div className="modalData__count">{detailsInfo?.TotalDeaths}</div>
                 </div>
                 <div className='modalData__deteilsItem'>
                     <div className="modalData__img">
                         <img src={recovered} alt="Total Confirmed" />
                     </div>
                     <div className="modalData__itemName">Total Recovered</div>
-                    <div className="modalData__count">3</div>
+                    <div className="modalData__count">{detailsInfo?.TotalRecovered}</div>
                 </div>
             </div>
             <button className='modalData__button' onClick={closeModal}>OK</button>

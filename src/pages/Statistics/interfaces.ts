@@ -11,6 +11,12 @@ export interface ICountry {
     TotalRecovered: number;
 }
 
+export interface IDetailsInfo {
+    TotalConfirmed: number;
+    TotalDeaths: number;
+    TotalRecovered: number;
+}
+
 export interface IMapStateToProps {
     characters: ICountry[];
     isLoading: boolean;
