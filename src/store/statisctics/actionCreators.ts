@@ -3,17 +3,12 @@ import { createAction } from '@reduxjs/toolkit';
 import { ICountry } from '../../pages/Statistics/interfaces';
 import { CountriesActionTypes as types } from './actionTypes';
 
-// export interface IFetchCountriesPayload {
-//     url: string;
-// }
-
 export interface ISuccessCountriesPayload {
     countries: ICountry[];
 }
 
 export interface IFetchCountries {
     type: types.FETCH_COUNTRIES;
-    // payload: IFetchCountriesPayload;
 }
 
 export interface IFetchCountriesStart {

@@ -5,25 +5,21 @@ import search from '../../assets/images/Vector.png';
 
 export interface IProps {
     searchQuery: string;
-    onInputChange: any;
+    onInputChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 const SearchBar: React.FC<IProps> = (props: IProps): JSX.Element => {
     const { searchQuery, onInputChange } = props;
 
-    const getTitleOrderBy = () => {
-        
-    }
-
     return (
         <div className='searchBar'>
-            <button
+            {/* <button
                 type='button'
                 onClick={getTitleOrderBy}
                 className='searchBar_orderBy'
             >
                 ASC
-            </button>
+            </button> */}
             <input
                 type="text"
                 placeholder='Search...'

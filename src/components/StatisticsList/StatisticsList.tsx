@@ -3,7 +3,6 @@ import { useSelector } from 'react-redux';
 
 import Spinner from '../../components/Spinner/Spinner';
 import { ICountry, IDetailsInfo } from '../../pages/Statistics/interfaces';
-
 import { IStore } from '../../store/rootReducer';
 import ListItem from '../ListItem/ListItem';
 
@@ -20,13 +19,14 @@ const StatisticsList: React.FC<IProps> = (props: IProps): JSX.Element => {
     const { setIsVisible, setDetailsInfo, searchQuery } = props;
 
     const showDetails = (details: ICountry) => {
-        const { TotalConfirmed, TotalDeaths, TotalRecovered } = details;
+        const { TotalConfirmed, TotalDeaths, TotalRecovered, Country } = details;
 
         setIsVisible(true);
         setDetailsInfo({
             TotalConfirmed,
             TotalDeaths,
             TotalRecovered,
+            Country,
         })
     }
 
@@ -34,7 +34,7 @@ const StatisticsList: React.FC<IProps> = (props: IProps): JSX.Element => {
 
     return (
         <div className='statisticList'>
-            <div className='statisticList__header statisticList_items'>
+            <div className='statisticList__header'>
                 <ListItem
                     listId='№'
                     itemName='Country'

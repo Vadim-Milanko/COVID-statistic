@@ -1,34 +1,52 @@
+@font-face {
+    font-family: Roboto-Bold;
+    src: url("../../assets/fonts/Roboto-Bold.ttf");
+}
+
 .listItem {
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin-bottom: 20px;
-    width: 1000px;
+    width: 1800px;
     height: 80px;
+    font-family: Roboto-Bold;
+    font-size: 24px;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
     border-radius: 20px;
-    
 
     &__number {
+        position: relative;
         padding-left: 30px;
-        width: 5%;
-        border-right: 2px solid #000;
-        font-weight: bold;
-        font-size: 20px;
+        width: 3%;
+        &:after {
+            content: '';
+            position: absolute;
+            width: 1px;
+            height: 80px;
+            background-color: #B2B2B2;;
+            right: 0;
+            top: -25.5px;
+        }
     }
 
     &__country {
+        position: relative;
         padding-left: 30px;
-        width: 65%;
-        border-right: 2px solid #000;
-        font-weight: bold;
-        font-size: 20px;
+        width: 67%;
+        &:after {
+            content: '';
+            position: absolute;
+            width: 1px;
+            height: 80px;
+            background-color: #B2B2B2;;
+            right: 0;
+            top: -25.5px;
+        }
     }
 
     &__totalConfirmed {
         padding-left: 30px;
         width: 30%;
-        font-weight: bold;
-        font-size: 18px;
     }
 }

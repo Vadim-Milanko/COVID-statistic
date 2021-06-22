@@ -4,7 +4,6 @@ import { IDetailsInfo } from '../../pages/Statistics/interfaces';
 import ModalWindow from '../ModalWindow/ModalWindow';
 
 import './style.scss';
-
 import confirmed from '../../assets/images/confirmed.png';
 import deaths from '../../assets/images/deaths.png';
 import recovered from '../../assets/images/recovered.png';
@@ -23,7 +22,7 @@ const DetailsWindow: React.FC<IProps> = (props: IProps): JSX.Element => {
     const modalData = (
         <div className='modalData'>
             <h3 className='modalData__detailsHeader'>
-                Kiev
+                {detailsInfo?.Country}
             </h3>
             <div className='modalData__detailsBody'>
                 <div className='modalData__deteilsItem'>

@@ -1,12 +1,12 @@
-import axios, { AxiosResponse } from 'axios';
+import axios from 'axios';
 import { FETCH_URLS } from '../pages/Statistics/constants';
 
 import { ICountry } from '../pages/Statistics/interfaces';
 import { BASE_URL } from './constants';
 
 export interface IFetchStatisticsResponse {
-    Countries: ICountry[]
-} 
+    Countries: ICountry[];
+}
 
 export interface IApi {
     fetchStatisticsByCountries(): Promise<any>;
@@ -26,7 +26,7 @@ class Api implements IApi {
         } catch (error) {
             console.log(error);
         }
-        
+
         return response;
     }
 }

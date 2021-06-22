@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { MouseEventHandler } from 'react';
 
 import './style.scss';
 
@@ -6,7 +6,7 @@ interface IProps {
     listId: string | number;
     itemName: string;
     totalConfirmed: string | number;
-    showDetails?: any;
+    showDetails?: MouseEventHandler<HTMLDivElement>;
 }
 
 const ListItem: React.FC<IProps> = (props: IProps): JSX.Element => {

@@ -1,7 +1,7 @@
-import React from 'react'
+import React from 'react';
 
-import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
-import CircularProgress from '@material-ui/core/CircularProgress'
+import { makeStyles, createStyles } from '@material-ui/core/styles';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 const useStyles = makeStyles(() =>
     createStyles({
@@ -30,7 +30,6 @@ export interface IProps {
 
 const Spinner: React.FC<IProps> = (props: IProps): JSX.Element => {
     const { isLoading } = props;
-
     const classes = useStyles()
 
     return (

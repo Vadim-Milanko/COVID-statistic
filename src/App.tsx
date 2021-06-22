@@ -6,7 +6,7 @@ import Routes from './routes/Routes';
 
 import './App.scss';
 
-function App() {
+const App: React.FC = (): JSX.Element => {
   return (
     <Provider store={store}>
       <div className="App">
