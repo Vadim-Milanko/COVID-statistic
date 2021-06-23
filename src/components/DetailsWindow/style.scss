@@ -1,0 +1,73 @@
+@font-face {
+    font-family: Roboto-Bold;
+    src: url("../../assets/fonts/Roboto-Bold.ttf");
+}
+
+@font-face {
+    font-family: Roboto-Regular;
+    src: url("../../assets/fonts/Roboto-Regular.ttf");
+}
+
+.modalData {
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+    height: 400px;
+    background: #FFFFFF;
+    border-radius: 20px;
+
+    &__detailsHeader {
+        display: flex;
+        justify-content: center;
+        margin: 20px 0 38px 0;
+        font-size: 48px;
+        font-family: Roboto-Bold;
+    }
+    
+    &__detailsBody {
+        display: flex;
+        flex-direction: column;
+        font-family: Roboto-Regular;
+    }
+
+    &__deteilsItem {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 48px;
+        &:last-child {
+            margin-bottom: 36px;
+        }
+    }
+
+    &__img {
+        display: flex;
+        justify-content: center;
+        width: 15%;
+    }
+    
+    &__itemName {
+        width: 60%;
+        font-size: 24px;
+        color: #666666;
+    }
+
+    &__count {
+        margin-right: 25px;
+        text-align: end;
+        width: 25%;
+        color: #666666;
+        font-size: 24px;
+    }
+
+    &__button {
+        margin: 0 auto;
+        width: 171px;
+        height: 49px;
+        background: #2196F3;
+        color: #FFFFFF;
+        font-size: 24px;
+        border: none;
+        border-radius: 20px;
+        cursor: pointer;
+    }
+}

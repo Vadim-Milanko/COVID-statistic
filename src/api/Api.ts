@@ -1,23 +1,28 @@
 import axios from 'axios';
+import { FETCH_URLS } from '../pages/Statistics/constants';
 
-import { ICountries } from '../pages/Statistics/interfaces';
+import { ICountry } from '../pages/Statistics/interfaces';
 import { BASE_URL } from './constants';
 
+export interface IFetchStatisticsResponse {
+    Countries: ICountry[];
+}
+
 export interface IApi {
-    fetchStatisticsByCountries(url: string): Promise<ICountries>;
+    fetchStatisticsByCountries(): Promise<any>;
 }
 
 const request = axios.create({
     baseURL: BASE_URL,
-})
+});
 
 class Api implements IApi {
 
-    async fetchStatisticsByCountries(url: string): Promise<any> {
+    async fetchStatisticsByCountries(): Promise<any> {
         let response;
 
         try {
-            response = await request.get(url);
+            response = await request.get(FETCH_URLS.summary);
         } catch (error) {
             console.log(error);
         }

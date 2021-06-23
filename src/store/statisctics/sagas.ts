@@ -1,23 +1,24 @@
 import { put, call, takeEvery } from 'redux-saga/effects';
 
 import api from '../../api/Api';
-import { fetchCountriesError, fetchCountriesStart, fetchCountriesSuccess, IFetchCountries } from './actions/actionCreators';
-import { CountriesActionTypes as types } from './actions/actionTypes';
+import { fetchCountriesError, fetchCountriesStart, fetchCountriesSuccess } from './actionCreators';
+import { CountriesActionTypes as types } from './actionTypes';
 
 export function* watchFetchCountries(): Generator {
     yield takeEvery(types.FETCH_COUNTRIES, fetchCountriesSaga);
 }
 
-export function* fetchCountriesSaga(action: IFetchCountries): Generator {
-    const { url } = action.payload;
+export function* fetchCountriesSaga(): Generator {
 
     try {
         yield put(fetchCountriesStart());
+
         const data: any = yield call(() => {
-            return api.fetchStatisticsByCountries(url);
+            return api.fetchStatisticsByCountries();
         });
-        yield put(fetchCountriesSuccess(data.results))
+
+        yield put(fetchCountriesSuccess(data.data.Countries));
     } catch (error) {
-        yield put(fetchCountriesError(error))
+        yield put(fetchCountriesError(error));
     }
 }

@@ -1,19 +1,14 @@
 import { createAction } from '@reduxjs/toolkit';
 
-import { ICountry } from '../../../pages/Statistics/interfaces';
+import { ICountry } from '../../pages/Statistics/interfaces';
 import { CountriesActionTypes as types } from './actionTypes';
 
-export interface IFetchPayload {
-    url: string;
-}
-
-export interface ISuccessPayload {
+export interface ISuccessCountriesPayload {
     countries: ICountry[];
 }
 
 export interface IFetchCountries {
     type: types.FETCH_COUNTRIES;
-    payload: IFetchPayload;
 }
 
 export interface IFetchCountriesStart {
@@ -22,7 +17,7 @@ export interface IFetchCountriesStart {
 
 export interface IFetchCountriesSuccess {
     type: types.FETCH_COUNTRIES_SUCCESS;
-    payload: ISuccessPayload;
+    payload: ISuccessCountriesPayload;
 }
 
 export interface IFetchCountriesError {
@@ -30,14 +25,7 @@ export interface IFetchCountriesError {
     error: string;
 }
 
-export const fetchCountries = createAction(types.FETCH_COUNTRIES, function prepare(url: string) {
-    return {
-        payload: {
-            url,
-        }
-    }
-});
-
+export const fetchCountries = createAction(types.FETCH_COUNTRIES)
 export const fetchCountriesStart = createAction(types.FETCH_COUNTRIES_START);
 export const fetchCountriesSuccess = createAction(types.FETCH_COUNTRIES_SUCCESS, function prepare(countries: ICountry[]) {
     return {
