@@ -16,12 +16,12 @@ const Statistics: React.FC = (): JSX.Element => {
 
     const dispatch = useDispatch();
 
-    const apiFetchCountries = (): void => {
+    const loadCountries = (): void => {
         dispatch(fetchCountries());
     }
 
     useEffect(() => {
-        apiFetchCountries();
+        loadCountries();
     }, []);
 
     return (

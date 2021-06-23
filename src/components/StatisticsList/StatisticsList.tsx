@@ -30,7 +30,9 @@ const StatisticsList: React.FC<IProps> = (props: IProps): JSX.Element => {
         })
     }
 
-    const searchList = searchQuery ? countries.filter(item => item.Country.toLowerCase().includes(searchQuery.toLowerCase().trim())) : countries;
+    const searchList = searchQuery ?
+    countries.filter(item => item.Country.toLowerCase().includes(searchQuery.toLowerCase().trim())) :
+    countries;
 
     return (
         <div className='statisticList'>
@@ -44,9 +46,7 @@ const StatisticsList: React.FC<IProps> = (props: IProps): JSX.Element => {
             </div>
             {
                 isLoading ?
-                    <Spinner
-                        isLoading={isLoading}
-                    /> :
+                    <Spinner /> :
                     (<div className='statisticList_items'>
                         {searchList.map((country, index) => {
                             const { TotalConfirmed, Country, ID } = country;
