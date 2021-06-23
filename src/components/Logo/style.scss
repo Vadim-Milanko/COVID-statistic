@@ -1,0 +1,14 @@
+@font-face {
+    font-family: Roboto-Bold;
+    src: url("../../assets/fonts/Roboto-Bold.ttf");
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+
+    &__name {
+        font-size: 72px;
+        font-family: Roboto-Bold;
+    }
+}
