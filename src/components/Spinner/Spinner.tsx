@@ -6,9 +6,6 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 const useStyles = makeStyles(() =>
     createStyles({
         root: {
-            display: 'none',
-        },
-        visible: {
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
@@ -20,20 +17,15 @@ const useStyles = makeStyles(() =>
             height: '100%',
             background: '#000',
             opacity: '0.9',
-        }
+        },
     }),
 );
 
-export interface IProps {
-    isLoading: boolean;
-}
-
-const Spinner: React.FC<IProps> = (props: IProps): JSX.Element => {
-    const { isLoading } = props;
+const Spinner: React.FC = (): JSX.Element => {
     const classes = useStyles()
 
     return (
-        <div className={!isLoading ? classes.root : classes.visible}>
+        <div className={classes.root}>
             <CircularProgress size={80} />
         </div>
     )
