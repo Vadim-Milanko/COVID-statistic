@@ -14,6 +14,11 @@
     font-size: 24px;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
     border-radius: 20px;
+    cursor: pointer;
+    transition: box-shadow .3s;
+    &:hover {
+        box-shadow: 0px 0px 12px 1px #2196F3;
+    }
 
     &__number {
         position: relative;
@@ -48,5 +53,15 @@
     &__totalConfirmed {
         padding-left: 30px;
         width: 30%;
+    }
+}
+
+.tableHeader {
+    background: #2196F3;
+    color: #fff;
+    border-radius: 20px;
+    cursor: auto;
+    &:hover {
+        box-shadow: none;
     }
 }

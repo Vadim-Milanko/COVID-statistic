@@ -39,6 +39,7 @@ const StatisticsList: React.FC<IProps> = (props: IProps): JSX.Element => {
                     listId='№'
                     itemName='Country'
                     totalConfirmed='Total Confirmed'
+                    className='tableHeader'
                 />
             </div>
             {

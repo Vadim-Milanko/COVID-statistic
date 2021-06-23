@@ -1,4 +1,5 @@
 import React, { MouseEventHandler } from 'react';
+import classNames  from 'classnames';
 
 import './style.scss';
 
@@ -7,13 +8,14 @@ interface IProps {
     itemName: string;
     totalConfirmed: string | number;
     showDetails?: MouseEventHandler<HTMLDivElement>;
+    className?: string;
 }
 
 const ListItem: React.FC<IProps> = (props: IProps): JSX.Element => {
-    const { listId, itemName, totalConfirmed, showDetails } = props;
+    const { listId, itemName, totalConfirmed, showDetails, className } = props;
 
     return (
-        <div onClick={showDetails} className='listItem'>
+        <div onClick={showDetails} className={`${classNames('listItem', className)}`}>
             <div className='listItem__number'>
                 {listId}
             </div>
